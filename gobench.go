@@ -267,6 +267,8 @@ func client(configuration *Configuration, result *Result, done *sync.WaitGroup) 
 				req.Header.Set("Authorization", configuration.authHeader)
 			}
 
+			req.Header.Set("SOAPAction", "http://api.microsofttranslator.com/V2/LanguageService/TranslateArray")
+
 			req.SetBody(configuration.postData)
 
 			resp := fasthttp.AcquireResponse()
